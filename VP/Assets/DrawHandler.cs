@@ -15,6 +15,7 @@ public class DrawHandler : MonoBehaviour
     public TMP_InputField textIF;
     public TMP_InputField classIF;
     public TMP_InputField styleIF;
+    public TMP_InputField imageIF;
     public void UpdateCurrGO(string str)
     {
         currGO = GameObject.Find("Window/" + str);
@@ -110,6 +111,7 @@ public class DrawHandler : MonoBehaviour
         go.GetComponent<CompIndv>().ctext = textIF.text;
         go.GetComponent<CompIndv>().cclass = classIF.text;
         go.GetComponent<CompIndv>().cstyle = styleIF.text;
+        go.GetComponent<CompIndv>().cimage = imageIF.text;
     }
     private void ClearAttributeSettings()
     {
@@ -119,6 +121,7 @@ public class DrawHandler : MonoBehaviour
         textIF.text = string.Empty;
         classIF.text = string.Empty;
         styleIF.text = string.Empty;
+        imageIF.text = string.Empty;
     }
 
 }

@@ -11,5 +11,6 @@ public class CompIndv : MonoBehaviour
     public string ctext;
     public string cclass;
     public string cstyle;
+    public string cimage;
 }
 
