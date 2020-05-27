@@ -1804,7 +1804,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Image(Clone)
+          m_StringArgument: Image
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &347303407
@@ -3544,7 +3544,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Parag(Clone)
+          m_StringArgument: Parag
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &643125395
@@ -8100,7 +8100,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Header(Clone)
+          m_StringArgument: Header
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1621654946
@@ -10668,7 +10668,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Div(Clone)
+          m_StringArgument: Div
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2069576842
@@ -11292,7 +11292,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Button(Clone)
+          m_StringArgument: Button
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &3873803055897960292

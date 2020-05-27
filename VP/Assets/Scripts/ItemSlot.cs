@@ -26,6 +26,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
             Vector2 offs = eventData.pointerDrag.GetComponent<DragDrop>().v2orig;
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition+offs;
             inblock = eventData.pointerDrag.GetComponent<RectTransform>().gameObject;
+            Debug.Log(inblock);
         }
     }
 
