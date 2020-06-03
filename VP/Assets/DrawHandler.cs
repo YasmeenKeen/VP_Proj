@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
+
 public class DrawHandler : MonoBehaviour
 {
     public GameObject currGO;
@@ -16,6 +16,7 @@ public class DrawHandler : MonoBehaviour
     public TMP_InputField classIF;
     public TMP_InputField styleIF;
     public TMP_InputField imageIF;
+
     public void UpdateCurrGO(string str)
     {
         currGO = GameObject.Find("Window/" + str);
@@ -24,7 +25,6 @@ public class DrawHandler : MonoBehaviour
     [System.Obsolete]
     public void DragActivate()
     {
-      
         // a prefab is need to perform the instantiation
         if (currGO != null)
         {
@@ -41,9 +41,7 @@ public class DrawHandler : MonoBehaviour
             colourIF.text = "";
             objCounter++;
             ParseToTextFile();
-
         }
-
     }
 
     public void ParseToTextFile()
@@ -52,7 +50,7 @@ public class DrawHandler : MonoBehaviour
         for (int i = 0; i < createdObjects.Count; i++)
         {
             CompIndv obj = createdObjects[i].GetComponent<CompIndv>();
-            string id = i+"";
+            string id = i + "";
             string type = obj.ctype;
             string text = obj.ctext;
             string colour = obj.ccolour;
@@ -64,31 +62,35 @@ public class DrawHandler : MonoBehaviour
                 case ("Button"):
                     htmlType = "button";
                     break;
+
                 case ("Image"):
                     htmlType = "img";
                     break;
+
                 case ("Header"):
                     htmlType = "header";
                     break;
+
                 case ("Parag"):
                     htmlType = "p";
                     break;
+
                 case ("Div"):
                     htmlType = "div";
                     break;
             }
             string line = id;
-            line += htmlType.Length > 0 ? " " + htmlType:"";
+            line += htmlType.Length > 0 ? " " + htmlType : "";
             line += text.Length > 0 ? " " + "text=" + text : "";
-            line += colour.Length > 0? " " + "color=" + colour: "";
-            line += cclass.Length > 0 ? " " + "class=" + cclass: "";
+            line += colour.Length > 0 ? " " + "color=" + colour : "";
+            line += cclass.Length > 0 ? " " + "class=" + cclass : "";
             line += style.Length > 0 ? " " + "style=" + style : "";
             //line+= " "+"childof=";
             lines.Add(line);
         }
         CreateTextFile(lines);
-        
     }
+
     public void CreateTextFile(List<string> lines)
     {
         using (System.IO.StreamWriter file =
@@ -97,14 +99,12 @@ public class DrawHandler : MonoBehaviour
             foreach (string line in lines)
             {
                 file.WriteLine(line);
-                
             }
         }
     }
 
     private void SetAttributeSettings(GameObject go)
     {
-        
         go.GetComponent<CompIndv>().cposX = xIF.text;
         go.GetComponent<CompIndv>().cposY = yIF.text;
         go.GetComponent<CompIndv>().ccolour = colourIF.text;
@@ -113,6 +113,7 @@ public class DrawHandler : MonoBehaviour
         go.GetComponent<CompIndv>().cstyle = styleIF.text;
         go.GetComponent<CompIndv>().cimage = imageIF.text;
     }
+
     private void ClearAttributeSettings()
     {
         xIF.text = string.Empty;
@@ -123,5 +124,4 @@ public class DrawHandler : MonoBehaviour
         styleIF.text = string.Empty;
         imageIF.text = string.Empty;
     }
-
 }

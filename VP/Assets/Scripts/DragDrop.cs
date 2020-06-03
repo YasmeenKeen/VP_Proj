@@ -1,4 +1,4 @@
-﻿/* 
+﻿/*
     ------------------- Code Monkey -------------------
 
     Thank you for downloading this package
@@ -10,13 +10,11 @@
     --------------------------------------------------
  */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
-
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+{
     [SerializeField] private Canvas canvas;
     [SerializeField] public Vector2 v2orig;
 
@@ -24,7 +22,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private CanvasGroup canvasGroup;
     public bool dragActivated;
 
-    private void Awake() {
+    private void Awake()
+    {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvas == null)
@@ -33,32 +32,42 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         }
         dragActivated = false;
     }
+
     public void SetDragActivated()
     {
         dragActivated = true;
     }
-    public void OnBeginDrag(PointerEventData eventData) {
-        Debug.Log("OnBeginDrag");
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        // Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
     }
 
-    public void OnDrag(PointerEventData eventData) {
+    public void OnDrag(PointerEventData eventData)
+    {
         //Debug.Log("OnDrag");
         if (dragActivated)
         {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         }
     }
 
-    public void OnEndDrag(PointerEventData eventData) {
-        Debug.Log("OnEndDrag");
+    public void OnEndDrag(PointerEventData eventData)
+    {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
 
-    public void OnPointerDown(PointerEventData eventData) {
+    [System.Obsolete]
+    public void OnPointerDown(PointerEventData eventData)
+    {
         Debug.Log("OnPointerDown");
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("delete");
+            DestroyObject(this);
+        }
     }
-
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CompIndv : MonoBehaviour
 {
@@ -13,4 +11,3 @@ public class CompIndv : MonoBehaviour
     public string cstyle;
     public string cimage;
 }
-
