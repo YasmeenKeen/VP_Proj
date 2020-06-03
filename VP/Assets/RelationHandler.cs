@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RelationHandler : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class RelationHandler : MonoBehaviour
     public TMP_InputField pyIF;
     public TMP_InputField cxIF;
     public TMP_InputField cyIF;
+
+    public int px;
+    public int py;
+    public int cx;
+    public int cy;
 
     public Vector3 ParentPos;
     public Vector3 ChildPos;
@@ -28,21 +34,17 @@ public class RelationHandler : MonoBehaviour
         // a prefab is need to perform the instantiation
         if (currGO != null)
         {
-
             ParentPos = GetParentCoords();
 
             ChildPos = GetChildCoords();
-
             Vector3 position = ParentPos;
             GameObject newCurrGO = (GameObject)Instantiate(currGO, position, Quaternion.identity);
             newCurrGO.name = "Rel" + relCounter;
             newCurrGO.transform.SetParent(parentGameObject.transform, false);
             newCurrGO.GetComponent<RelIndv>().ctype = currGO.name;
             SetAttributeSettings(newCurrGO);
-
+            SetRelationship(newCurrGO);
             createdRelations.Add(newCurrGO);
-
-            
 
             //Vector3 relative = ChildPos - ParentPos;
             //float maggy = relative.magnitude;
@@ -53,7 +55,6 @@ public class RelationHandler : MonoBehaviour
 
             //newCurrGO.transform.position = midPointVector;
 
-            
             ////        Quaternion rotationVector = Quaternion.LookRotation (relative);
             ////        rotationVector.z = 0;
             ////        rotationVector.w = 0;
@@ -65,23 +66,36 @@ public class RelationHandler : MonoBehaviour
 
             //ParseToTextFile();
 
+            
             ClearAttributeSettings();
             DestroyObject(currGO);
             relCounter++;
         }
     }
 
+    public void SetRelationship(GameObject go)
+    {
+        go.GetComponent<RelIndv>().parent= GameObject.Find("Slot(" + px + "," + py + ")").GetComponent<ItemSlot>().inblock;
+        go.GetComponent<RelIndv>().child = GameObject.Find("Slot(" + cx + "," + cy + ")").GetComponent<ItemSlot>().inblock;
+       
+    }
+
     public Vector3 GetParentCoords()
     {
-        float x = 80+(100*(1+float.Parse(pxIF.text)));
-        float y =20-(100*(float.Parse(pyIF.text)));
+        px = int.Parse(pxIF.text);
+        py = int.Parse(pyIF.text);
+
+        float x = 80 + (100 * (1 + px));
+        float y = 20 - (100 * (py));
         return new Vector3(x, y, 0);
     }
 
     public Vector3 GetChildCoords()
     {
-        float x = (float.Parse(cxIF.text));
-        float y = (float.Parse(cyIF.text));
+        cx = int.Parse(cxIF.text);
+        cy = int.Parse(cyIF.text);
+        float x = cx;
+        float y = cy;
         return new Vector3(x, y, 0);
     }
 
@@ -160,4 +174,5 @@ public class RelationHandler : MonoBehaviour
         cxIF.text = string.Empty;
         cyIF.text = string.Empty;
     }
+
 }

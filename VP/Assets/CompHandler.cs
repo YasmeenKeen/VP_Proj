@@ -9,15 +9,34 @@ public class CompHandler : MonoBehaviour
 
     public GameObject parentGameObject;
     public GameObject attab;
-
+    public GameObject window;
+    public GameObject arrowTab;
     public List<GameObject> createdObjects = new List<GameObject>();
 
+    public void Start()
+    {
+        arrowTab = GameObject.Find("ArrowTab");
+    }
     [System.Obsolete]
     public void CreateComp()
     {
+        window = GameObject.Find("Window");
         // a prefab is need to perform the instantiation
         if (equipPrefab != null)
         {
+            if (equipPrefab.name.Equals("Arrow"))
+            {
+                arrowTab.active = true;
+                window = GameObject.Find("WindowRel");
+            }
+            else
+            {
+                arrowTab.active = false;
+            }
+            foreach (Transform child in window.transform)
+            {
+                Destroy(child.gameObject);
+            }
             // get a random postion to instantiate the prefab - you can change this to be created at a fied point if desired
             Vector3 position = new Vector3(0, 0, 1);
             // instantiate the object

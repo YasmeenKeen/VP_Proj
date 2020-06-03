@@ -64,10 +64,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("delete");
-            DestroyObject(this);
-        }
+        
     }
 }

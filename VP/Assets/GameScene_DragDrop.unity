@@ -1680,6 +1680,8 @@ MonoBehaviour:
     type: 3}
   parentGameObject: {fileID: 715340258}
   attab: {fileID: 0}
+  window: {fileID: 0}
+  arrowTab: {fileID: 0}
   createdObjects: []
 --- !u!1 &352451688
 GameObject:
@@ -1741,6 +1743,10 @@ MonoBehaviour:
   pyIF: {fileID: 102156983}
   cxIF: {fileID: 181385194}
   cyIF: {fileID: 498473014}
+  px: 0
+  py: 0
+  cx: 0
+  cy: 0
   ParentPos: {x: 0, y: 0, z: 0}
   ChildPos: {x: 0, y: 0, z: 0}
 --- !u!114 &352451691
@@ -3566,6 +3572,8 @@ MonoBehaviour:
     type: 3}
   parentGameObject: {fileID: 715340258}
   attab: {fileID: 0}
+  window: {fileID: 0}
+  arrowTab: {fileID: 0}
   createdObjects: []
 --- !u!114 &643125394
 MonoBehaviour:
@@ -6566,6 +6574,8 @@ MonoBehaviour:
     type: 3}
   parentGameObject: {fileID: 1412532082}
   attab: {fileID: 0}
+  window: {fileID: 0}
+  arrowTab: {fileID: 0}
   createdObjects: []
 --- !u!114 &1460140771
 MonoBehaviour:
@@ -7600,6 +7610,8 @@ MonoBehaviour:
     type: 3}
   parentGameObject: {fileID: 715340258}
   attab: {fileID: 0}
+  window: {fileID: 0}
+  arrowTab: {fileID: 0}
   createdObjects: []
 --- !u!114 &1621654945
 MonoBehaviour:
@@ -8952,7 +8964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1910461357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9506,6 +9518,8 @@ MonoBehaviour:
     type: 3}
   parentGameObject: {fileID: 715340258}
   attab: {fileID: 0}
+  window: {fileID: 0}
+  arrowTab: {fileID: 0}
   createdObjects: []
 --- !u!114 &2069576841
 MonoBehaviour:
@@ -11476,4 +11490,6 @@ MonoBehaviour:
     type: 3}
   parentGameObject: {fileID: 715340258}
   attab: {fileID: 0}
+  window: {fileID: 0}
+  arrowTab: {fileID: 0}
   createdObjects: []

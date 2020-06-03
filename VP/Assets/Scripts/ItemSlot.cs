@@ -56,8 +56,14 @@ public class ItemSlot : MonoBehaviour, IDropHandler, IPointerDownHandler
         }
     }
 
+    [System.Obsolete]
     public void OnPointerDown(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("delete");
+            DestroyObject(inblock);
+            inblock = null;
+        }
     }
 }
