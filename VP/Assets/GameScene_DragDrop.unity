@@ -2208,6 +2208,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd265326ff0fb8e4e8dc7cc32f49589e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  compHandle: {fileID: 1848111823}
+  relHandle: {fileID: 352451688}
+  compCreated: []
+  relCreated: []
 --- !u!1 &492541779
 GameObject:
   m_ObjectHideFlags: 0
