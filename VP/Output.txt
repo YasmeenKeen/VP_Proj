@@ -1,2 +1,3 @@
 0 img
 1 header
+0 relation parent=Comp1 child=Comp2

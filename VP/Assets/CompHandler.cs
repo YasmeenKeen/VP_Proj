@@ -17,6 +17,7 @@ public class CompHandler : MonoBehaviour
     {
         arrowTab = GameObject.Find("ArrowTab");
     }
+
     [System.Obsolete]
     public void CreateComp()
     {
