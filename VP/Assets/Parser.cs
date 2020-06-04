@@ -96,6 +96,11 @@ public class Parser : MonoBehaviour
             {
                 file.WriteLine(line);
             }
+            string strCmdText;
+            strCmdText = @"/C venv\scripts\activate && py parser.py";
+
+
+            var process = System.Diagnostics.Process.Start("CMD.exe", strCmdText);
         }
     }
 }
