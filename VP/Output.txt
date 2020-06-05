@@ -1,1 +1,2 @@
-0 button text=l,m
+0 button text=,mnb childof=1
+1 p text=aaa

@@ -64,25 +64,30 @@ public class Parser : MonoBehaviour
             line += colour.Length > 0 ? " " + "color=" + colour : "";
             line += cclass.Length > 0 ? " " + "class=" + cclass : "";
             line += style.Length > 0 ? " " + "style=" + style : "";
+            for (int j = 0; j < relCreated.Count; j++)
+            {
+                RelIndv objRel = relCreated[j].GetComponent<RelIndv>();
+                string parent = objRel.parent.name;
+                string child = objRel.child.name;
+                int parent_id = int.Parse(parent[parent.Length - 1]+"")-1;
+                int child_id = int.Parse(child[child.Length - 1]+"")-1;
+                if (i == child_id)
+                {
+                    line += " childof=" + parent_id + "";
+                }
+
+
+                //string line = id;
+                //line += htmlType.Length > 0 ? " " + htmlType : "";
+                //line += parent.Length > 0 ? " " + "parent=" + parent : "";
+                //line += child.Length > 0 ? " " + "child=" + child : "";
+                //lines.Add(line);
+            }
             //line+= " "+"childof=";
             lines.Add(line);
         }
 
-        for (int i = 0; i < relCreated.Count; i++)
-        {
-            RelIndv obj = relCreated[i].GetComponent<RelIndv>();
-            string id = i + "";
-            string parent = obj.parent.name;
-            string child = obj.child.name;
-            string htmlType = "relation";
-            
-            string line = id;
-            line += htmlType.Length > 0 ? " " + htmlType : "";
-            line += parent.Length > 0 ? " " + "parent=" + parent : "";
-            line += child.Length > 0 ? " " + "child=" + child : "";
-            //line+= " "+"childof=";
-            lines.Add(line);
-        }
+
 
         CreateTextFile(lines);
     }
