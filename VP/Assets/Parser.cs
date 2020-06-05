@@ -28,62 +28,65 @@ public class Parser : MonoBehaviour
         List<string> lines = new List<string>();
         for (int i = 0; i < compCreated.Count; i++)
         {
-            CompIndv obj = compCreated[i].GetComponent<CompIndv>();
-            string id = i + "";
-            string type = obj.ctype;
-            string text = obj.ctext;
-            string colour = obj.ccolour;
-            string cclass = obj.cclass;
-            string style = obj.cstyle;
-            string htmlType = "";
-            switch (type)
+            if(compCreated[i]!= null)
             {
-                case ("Button"):
-                    htmlType = "button";
-                    break;
-
-                case ("Image"):
-                    htmlType = "img";
-                    break;
-
-                case ("Header"):
-                    htmlType = "header";
-                    break;
-
-                case ("Parag"):
-                    htmlType = "p";
-                    break;
-
-                case ("Div"):
-                    htmlType = "div";
-                    break;
-            }
-            string line = id;
-            line += htmlType.Length > 0 ? " " + htmlType : "";
-            line += text.Length > 0 ? " " + "text=" + text : "";
-            line += colour.Length > 0 ? " " + "color=" + colour : "";
-            line += cclass.Length > 0 ? " " + "class=" + cclass : "";
-            line += style.Length > 0 ? " " + "style=" + style : "";
-            for (int j = 0; j < relCreated.Count; j++)
-            {
-                RelIndv objRel = relCreated[j].GetComponent<RelIndv>();
-                string parent = objRel.parent.name;
-                string child = objRel.child.name;
-                int parent_id = int.Parse(parent[parent.Length - 1] + "") - 1;
-                int child_id = int.Parse(child[child.Length - 1] + "") - 1;
-                if (i == child_id)
+                CompIndv obj = compCreated[i].GetComponent<CompIndv>();
+                string id = i + "";
+                string type = obj.ctype;
+                string text = obj.ctext;
+                string colour = obj.ccolour;
+                string cclass = obj.cclass;
+                string style = obj.cstyle;
+                string src = obj.cimage;
+                string htmlType = "";
+                switch (type)
                 {
-                    line += " childof=" + parent_id + "";
-                }
+                    case ("Button"):
+                        htmlType = "button";
+                        break;
 
-                //string line = id;
-                //line += htmlType.Length > 0 ? " " + htmlType : "";
-                //line += parent.Length > 0 ? " " + "parent=" + parent : "";
-                //line += child.Length > 0 ? " " + "child=" + child : "";
-                //lines.Add(line);
+                    case ("Image"):
+                        htmlType = "img";
+                        break;
+
+                    case ("Header"):
+                        htmlType = "header";
+                        break;
+
+                    case ("Parag"):
+                        htmlType = "p";
+                        break;
+
+                    case ("Div"):
+                        htmlType = "div";
+                        break;
+                }
+                string line = id;
+                line += htmlType.Length > 0 ? " " + htmlType : "";
+                line += text.Length > 0 ? " " + "text=" + text : "";
+                line += colour.Length > 0 ? " " + "color=" + colour : "";
+                line += cclass.Length > 0 ? " " + "class=" + cclass : "";
+                line += style.Length > 0 ? " " + "style=" + style : "";
+                line += src.Length > 0 ? " " + "src=" + src : "";
+                for (int j = 0; j < relCreated.Count ; j++)
+                {
+                    if(relCreated[j]!= null)
+                    {
+                        RelIndv objRel = relCreated[j].GetComponent<RelIndv>();
+                        string parent = objRel.parent.name;
+                        string child = objRel.child.name;
+                        int parent_id = int.Parse(parent[parent.Length - 1] + "") - 1;
+                        int child_id = int.Parse(child[child.Length - 1] + "") - 1;
+                        if (i == child_id)
+                        {
+                            line += " childof=" + parent_id + "";
+                        }
+                    }
+                }
+                //line+= " "+"childof=";
+                lines.Add(line);
             }
-            //line+= " "+"childof=";
-            lines.Add(line);
+           
         }
 
         CreateTextFile(lines);
