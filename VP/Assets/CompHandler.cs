@@ -11,11 +11,13 @@ public class CompHandler : MonoBehaviour
     public GameObject attab;
     public GameObject window;
     public GameObject arrowTab;
+    public GameObject imgTab;
     public List<GameObject> createdObjects = new List<GameObject>();
 
     public void Start()
     {
         arrowTab = GameObject.Find("ArrowTab");
+        imgTab = GameObject.Find("AttributeTab/Image");
     }
 
     [System.Obsolete]
@@ -33,6 +35,14 @@ public class CompHandler : MonoBehaviour
             else
             {
                 arrowTab.active = false;
+            }
+            if (equipPrefab.name.Equals("Image"))
+            {
+                imgTab.active = true;
+            }
+            else
+            {
+                imgTab.active = false;
             }
             foreach (Transform child in window.transform)
             {

@@ -69,13 +69,12 @@ public class Parser : MonoBehaviour
                 RelIndv objRel = relCreated[j].GetComponent<RelIndv>();
                 string parent = objRel.parent.name;
                 string child = objRel.child.name;
-                int parent_id = int.Parse(parent[parent.Length - 1]+"")-1;
-                int child_id = int.Parse(child[child.Length - 1]+"")-1;
+                int parent_id = int.Parse(parent[parent.Length - 1] + "") - 1;
+                int child_id = int.Parse(child[child.Length - 1] + "") - 1;
                 if (i == child_id)
                 {
                     line += " childof=" + parent_id + "";
                 }
-
 
                 //string line = id;
                 //line += htmlType.Length > 0 ? " " + htmlType : "";
@@ -86,8 +85,6 @@ public class Parser : MonoBehaviour
             //line+= " "+"childof=";
             lines.Add(line);
         }
-
-
 
         CreateTextFile(lines);
     }
@@ -103,7 +100,6 @@ public class Parser : MonoBehaviour
             }
             string strCmdText;
             strCmdText = @"/C venv\scripts\activate && py parser.py";
-
 
             var process = System.Diagnostics.Process.Start("CMD.exe", strCmdText);
         }

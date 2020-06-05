@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class RelationHandler : MonoBehaviour
 {
@@ -66,7 +65,6 @@ public class RelationHandler : MonoBehaviour
 
             //ParseToTextFile();
 
-            
             ClearAttributeSettings();
             DestroyObject(currGO);
             relCounter++;
@@ -75,9 +73,8 @@ public class RelationHandler : MonoBehaviour
 
     public void SetRelationship(GameObject go)
     {
-        go.GetComponent<RelIndv>().parent= GameObject.Find("Slot(" + px + "," + py + ")").GetComponent<ItemSlot>().inblock;
+        go.GetComponent<RelIndv>().parent = GameObject.Find("Slot(" + px + "," + py + ")").GetComponent<ItemSlot>().inblock;
         go.GetComponent<RelIndv>().child = GameObject.Find("Slot(" + cx + "," + cy + ")").GetComponent<ItemSlot>().inblock;
-       
     }
 
     public Vector3 GetParentCoords()
@@ -174,5 +171,4 @@ public class RelationHandler : MonoBehaviour
         cxIF.text = string.Empty;
         cyIF.text = string.Empty;
     }
-
 }
