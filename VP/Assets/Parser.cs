@@ -22,6 +22,10 @@ public class Parser : MonoBehaviour
         relCreated = relHandle.GetComponent<RelationHandler>().createdRelations;
         ParseToTextFile();
     }
+    public void Exit()
+    {
+        Application.Quit();
+    }
 
     public void ParseToTextFile()
     {
